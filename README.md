@@ -1,4 +1,4 @@
-tcpdumpfollow
+tcpdump-watch
 =============
 
 Simple tool written in bash to capture tcpdump until certain log message is matched. 
