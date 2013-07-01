@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## tcpdump-watch - last updated July 1 2013
+## tcpdump-watch
 ## Maintainer: Kyle Squizzato - ksquizza@redhat.com
 
 ## Simple tool to capture tcpdump until certain log message is matched.
