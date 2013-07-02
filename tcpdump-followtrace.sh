@@ -11,7 +11,7 @@ tshark -l -i any -s0 -f 'dst net 10.13.211.232' -R '(nfs.nfsstat4 == 0)' > /tmp/
 tail -fn 1 /tmp/tshark.tmp |
 while read line
 do
-        ret=`echo $line | grep NFS`
+        ret=`echo $line`
         if [[ -n $ret ]]
         then
                 sleep $wait
