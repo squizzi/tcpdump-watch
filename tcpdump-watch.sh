@@ -12,7 +12,7 @@
 ## -------- SETUP ---------
 
 # File output location
-output="/tmp/CASENUMBER-tcpdump.pcap"
+output="/tmp/tcpdump.pcap"
 
 # Logfile to watch
 log="/var/log/messages"
