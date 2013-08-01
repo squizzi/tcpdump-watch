@@ -14,7 +14,7 @@
 # File output location
 output="/tmp/tcpdump.pcap"
 
-# Logfile to watch
+# Logfile to watch.  Accepts wildcards to watch multiple logfiles at once.
 log="/var/log/messages"
 
 # Message to match from log
@@ -54,3 +54,4 @@ do
                 break 1
         fi
 done
+
