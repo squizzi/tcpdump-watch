@@ -36,7 +36,7 @@ serverip="192.168.122.1"
 # The tcpdump command creates a circular buffer of -W X dump files -C YM in size (in MB).
 # The default value is 1 file, 1024M in size, it is recommended to modify the buffer values
 # depending on the capture window needed.
-tcpdump="tcpdump -s0 -i $interface host $serverip -W 1 -C 1024M -w $output"
+tcpdump="tcpdump -s0 -i $interface host $serverip -W 1 -C 1024M -w $output -Z root"
 
 ## -------- END SETUP ---------
 
