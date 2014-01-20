@@ -28,15 +28,16 @@ wait="3"
 # is problematic.  If you do not know what interface to use specify 'any'.
 interface="eth0"
 
-# Server IP to filter
-# If server filtering is not required simply remove the 'host $serverip' section from the
-# tcpdump command below.
-serverip="192.168.122.1"
+# Server IP or hostname to filter
+# If server filtering is not required simply remove the 'host $server' section from the
+# tcpdump command below.  More complicated host filtering can be used if desired, check 
+# 'man tcpdump'.
+server="192.168.122.1"
 
 # The tcpdump command creates a circular buffer of -W X dump files -C YM in size (in MB).
 # The default value is 1 file, 1024M in size, it is recommended to modify the buffer values
 # depending on the capture window needed.
-tcpdump="tcpdump -s0 -i $interface host $serverip -W 1 -C 1024M -w $output -Z root"
+tcpdump="tcpdump -s0 -i $interface host $server -W 1 -C 1024M -w $output -Z root"
 
 ## -------- END SETUP ---------
 
@@ -50,7 +51,7 @@ do
         if [[ -n $ret ]]
         then
                 sleep $wait
-                pkill tcpdump
+                kill $!
                 break 1
         fi
 done
