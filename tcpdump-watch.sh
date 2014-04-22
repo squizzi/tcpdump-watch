@@ -56,3 +56,9 @@ do
         fi
 done
 
+if [ -e /bin/gzip ]; then
+        echo Gzipping $output
+        gzip -f $output
+fi
+
+
