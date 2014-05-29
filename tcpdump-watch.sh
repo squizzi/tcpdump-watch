@@ -1,9 +1,10 @@
 #!/bin/bash
 
 ## tcpdump-watch
+## Part of a series of tcpdump watch scripts for stopping tcpdump based on certain situations.
 ## Maintainer: Kyle Squizzato - ksquizza@redhat.com
 
-## Simple tool to capture tcpdump until certain log message is matched.
+## This script captures a tcpdump until certain log message is matched.
 
 ## Fill in each of the variables in the SETUP section then invoke the script and wait
 ## for the issue to occur, the script will stop on it's own when the $match is seen
