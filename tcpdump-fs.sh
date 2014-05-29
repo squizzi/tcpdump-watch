@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## tcpdump-fs
-## Part of a series of tcpdump watch scripts for stopping tcpdump based on certain situations.
+## Part of a series of tcpdump watch scripts for stopping tcpdump based on certain conditions.
 ## Maintainer: Kyle Squizzato - ksquizza@redhat.com
 
 ## This script captures a tcpdump until a Usage% value is either too high or too low.
