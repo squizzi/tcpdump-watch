@@ -1,4 +1,6 @@
 #!/bin/bash
+# Stops a tcpdump based on a certain NFSv4 op
+# WIP: Needs better documentation
 
 output=/tmp/tcpdump.pcap
 wait=3
