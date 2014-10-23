@@ -1,4 +1,3 @@
-** Internal ** 
 #!/bin/bash
 
 ## tcpdump-watch-net
