@@ -31,7 +31,6 @@ if [ $# -ne 1 ]; then
         exit 1
 fi
 nfs_server=$1
-# NOTE: We could accept a DNS name but then we'd need to convert to IP
 if [[ $nfs_server =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
         echo "Found valid IP address $nfs_server for NFS server"
 	nfs_server_ip=$nfs_server
