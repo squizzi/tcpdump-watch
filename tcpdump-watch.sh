@@ -55,7 +55,7 @@ interface=$(tcpdump -D | grep -e $device | colrm 3 | sed 's/\.//')
 # The tcpdump command creates a circular buffer of -W X dump files -C YM in size (in MB).
 # The default value is 1 file, 1024M in size, it is recommended to modify the buffer values
 # depending on the capture window needed.
-tcpdump="tcpdump -s0 -i $interface host $nfs_server_ip -W 1 -C 1024M -w $output -Z root"
+tcpdump="tcpdump -s0 -i $interface host $nfs_server_ip -W 4 -C 1024M -w $output -Z root"
 echo $tcpdump
 echo "Waiting for '$match' to show up in $log"
 
