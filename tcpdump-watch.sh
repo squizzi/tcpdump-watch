@@ -53,9 +53,9 @@ device=$(ip route get $nfs_server_ip | head -n1 | awk '{print $(NF-2)}')
 interface=$(tcpdump -D | grep -e $device | colrm 3 | sed 's/\.//')
 
 # The tcpdump command creates a circular buffer of -W X dump files -C YM in size (in MB).
-# The default value is 1 file, 1024M in size, it is recommended to modify the buffer values
+# The default value is 4 files, 256M in size, it is recommended to modify the buffer values
 # depending on the capture window needed.
-tcpdump="tcpdump -s0 -i $interface host $nfs_server_ip -W 4 -C 1024M -w $output -Z root"
+tcpdump="tcpdump -s0 -i $interface host $nfs_server_ip -W 4 -C 256 -w $output -Z root"
 echo $tcpdump
 echo "Waiting for '$match' to show up in $log"
 
