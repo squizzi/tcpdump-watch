@@ -68,15 +68,24 @@ do
         ret=`echo $line | grep "$match"`
         if [[ -n $ret ]]
         then
+                echo -e '\E[1;32m'"Match found, waiting" $wait "seconds then killing tcpdump."; tput sgr0
                 sleep $wait
                 kill $!
                 break 1
         fi
 done
+
+# Gzip the tcpdumps 
 if [ -e /bin/gzip ]; then
         echo Gzipping $output
-        gzip -f $output
-        output=$output.gz
+        gzip -f $output*
 fi
 
-echo "Please upload both $log and $output to Red Hat for analysis."
+# Tar everything together 
+if [ -e /bin/tar ]; then 
+        echo "Creating a tarball of $log and $output."
+        tar czvf $output.tar.gz $log $output* 
+fi
+
+echo -e "\n "
+echo -e '\E[1;31m'"Please upload" $output.tar.gz "to Red Hat for analysis."; tput sgr0
