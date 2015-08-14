@@ -25,9 +25,11 @@ wait="2"
 
 ## -------- END SETUP ---------
 
-# The only required parameter is the IP address of the NFS server
-if [ $# -ne 1 ]; then
+# Required parameters are the target IP address and, optionally, a device to capture
+# on if supplied as an argument
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
         echo "Usage : $0 <ip_of_nfs_server>"
+	echo "      : $0 <ip_of_nfs_server> <optional_capture_device>"
         exit 1
 fi
 nfs_server=$1
@@ -49,8 +51,17 @@ fi
 
 # Interface to gather tcpdump, derived based on the IP address of the NFS server
 # NOTE: To prevent BZ 972396 we need to specify the interface by interface number
-device=$(ip route get $nfs_server_ip | head -n1 | awk '{print $(NF-2)}')
-interface=$(tcpdump -D | grep -e $device | colrm 3 | sed 's/\.//')
+# If this is set as the second argument, then automatic assignment is skipped
+if [ ! -z $2 ] && tcpdump -D | grep $2 >/dev/null 2>&1; then
+	interface=$2
+elif [ ! -z $2 ] && ! tcpdump -D | grep $2 >/dev/null 2>&1; then
+	echo "Interface $2 does not exist."
+	echo "Please select a valid interface to capture on."
+	exit 1
+else
+	device=$(ip route get $nfs_server_ip | head -n1 | awk '{print $(NF-2)}')
+	interface=$(tcpdump -D | grep -e $device | colrm 3 | sed 's/\.//')
+fi
 
 # The tcpdump command creates a circular buffer of -W X dump files -C YM in size (in MB).
 # The default value is 4 files, 256M in size, it is recommended to modify the buffer values
