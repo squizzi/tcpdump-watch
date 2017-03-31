@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 ## tcpdump-watch
 ## Maintainer: Kyle Squizzato - ksquizza@redhat.com
