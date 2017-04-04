@@ -12,7 +12,7 @@
 ## -------- SETUP ---------
 
 # File output location
-output="/tmp/CASENUMBER-tcpdump.pcap"
+output="/tmp/$(hostname)-$(date +"%Y-%m-%d-%H-%M-%S").pcap"
 
 # Logfile to watch.  Accepts wildcards to watch multiple logfiles at once.
 log="/var/log/messages"

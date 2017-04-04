@@ -13,7 +13,7 @@
 ## -------- SETUP ---------
 
 # File output location
-output="/tmp/CASENUMBER-tcpdump.pcap"
+output="/tmp/$(hostname)-$(date +"%Y-%m-%d-%H-%M-%S").pcap"
 
 # Usage percentage value to check for
 value=50
@@ -66,3 +66,15 @@ if [ -e /bin/gzip ]; then
         echo Gzipping $output
         gzip -f $output
 fi
+<<<<<<< HEAD
+=======
+
+# Tar everything together 
+if [ -e /bin/tar ]; then 
+        echo "Creating a tarball of $log and $output."
+        tar czvf $output.tar.gz $output* 
+fi
+
+echo -e "\n "
+echo -e '\E[1;31m'"Please upload" $output.tar.gz "to Red Hat for analysis."; tput sgr0
+>>>>>>> 855895c... sbr-filesystem: make the tcpdump output filename unique and don't rely on users changing 'CASENUMBER'
