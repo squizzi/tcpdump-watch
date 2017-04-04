@@ -73,7 +73,7 @@ echo "Waiting for '$match' to show up in $log"
 $tcpdump &
 pid=$!
 
-tail -fn 1 $log |
+tail --follow=name -n 1 $log |
 while read line
 do
         ret=`echo $line | grep "$match"`
