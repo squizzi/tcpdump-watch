@@ -42,7 +42,11 @@ interface="eth0"
 # The tcpdump command creates a circular buffer of -W X dump files -C YM in size (in MB).
 # The default value is 2 files, 1024M in size, it is recommended to modify the buffer values
 # depending on the capture window needed.
+<<<<<<< HEAD
 tcpdump="tcpdump -s0 -i $interface -W 2 -C 1024M -w $output -Z root"
+=======
+tcpdump="tcpdump -s0 -n -i $interface -W 4 -C 256 -w $output -Z root"
+>>>>>>> 863c9e0... sbr-filesystem: add '-n' option to all commonly used tcpdump scripts
 
 ## -------- END SETUP ---------
 
