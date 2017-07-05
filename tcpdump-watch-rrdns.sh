@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## tcpdump-watch
-## Maintainer: Kyle Squizzato - ksquizza@redhat.com
+## Maintainer: Kyle Squizzato - ksquizz@gmail.com
 
 ## Simple tool to capture tcpdump until certain log message is matched.
 
@@ -37,7 +37,7 @@ if [ $# -lt 1 ] || [ $# -gt 2 ]; then
 fi
 nfs_server=$1
 
-# DNS RR presented servers could mean that a client has multiple mounts from a server 
+# DNS RR presented servers could mean that a client has multiple mounts from a server
 # each with a different DNS RR IP.  Therefore we ask for a specific server export.
 nfs_server_ip=$(mount | grep "$nfs_server\ on" | grep -oE "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" | uniq)
 
@@ -91,16 +91,16 @@ do
         fi
 done
 
-# Gzip the tcpdumps 
+# Gzip the tcpdumps
 if [ -e /bin/gzip ]; then
         echo Gzipping $output
         gzip -f $output*
 fi
 
-# Tar everything together 
-if [ -e /bin/tar ]; then 
+# Tar everything together
+if [ -e /bin/tar ]; then
         echo "Creating a tarball of $log and $output."
-        tar czvf $output.tar.gz $log $output* 
+        tar czvf $output.tar.gz $log $output*
 fi
 
 echo -e "\n "

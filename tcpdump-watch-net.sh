@@ -1,10 +1,10 @@
 #!/bin/bash
 
 ## tcpdump-watch-net
-## Maintainer: Kyle Squizzato - ksquizza@redhat.com
+## Maintainer: Kyle Squizzato - ksquizz@gmail.com
 
 ## Simple tool to capture tcpdump until certain nfs.status is seen over the wire and
-## execute commands both locally and remotely based on that output. 
+## execute commands both locally and remotely based on that output.
 
 ## Fill in each of the variables in the SETUP section then invoke the script and wait
 ## for the issue to occur.
@@ -21,7 +21,7 @@ wait="2"
 # the NFS.SERVER.IP, NFS.CLIENT.IP and INTERFACE to capture on throughout the script manually.  Please
 # edit the section below and fill in each.
 
-# NOTE: For the ssh portion of this script to work you will need to configure keyless authentication 
+# NOTE: For the ssh portion of this script to work you will need to configure keyless authentication
 # on the target NFS server.
 
 ## -------- END SETUP ---------

@@ -2,7 +2,7 @@
 
 ## tcpdump-fs
 ## Part of a series of tcpdump watch scripts for stopping tcpdump based on certain conditions.
-## Maintainer: Kyle Squizzato - ksquizza@redhat.com
+## Maintainer: Kyle Squizzato - ksquizz@gmail.com
 
 ## This script captures a tcpdump until a Usage% value is either too high or too low.
 
@@ -73,10 +73,10 @@ fi
 <<<<<<< HEAD
 =======
 
-# Tar everything together 
-if [ -e /bin/tar ]; then 
+# Tar everything together
+if [ -e /bin/tar ]; then
         echo "Creating a tarball of $log and $output."
-        tar czvf $output.tar.gz $output* 
+        tar czvf $output.tar.gz $output*
 fi
 
 echo -e "\n "

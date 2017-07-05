@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## tcpdump-watch
-## Maintainer: Kyle Squizzato - ksquizza@redhat.com
+## Maintainer: Kyle Squizzato - ksquizz@gmail.com
 
 ## Simple tool to capture tcpdump until certain log message is matched.
 
@@ -86,16 +86,16 @@ do
         fi
 done
 
-# Gzip the tcpdumps 
+# Gzip the tcpdumps
 if [ -e /bin/gzip ]; then
         echo Gzipping $output
         gzip -f $output*
 fi
 
-# Tar everything together 
-if [ -e /bin/tar ]; then 
+# Tar everything together
+if [ -e /bin/tar ]; then
         echo "Creating a tarball of $log and $output."
-        tar czvf $output.tar.gz $log $output* 
+        tar czvf $output.tar.gz $log $output*
 fi
 
 echo -e "\n "
